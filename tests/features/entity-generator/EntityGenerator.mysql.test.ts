@@ -17,6 +17,25 @@ describe('EntityGenerator', () => {
     await orm.close(true);
   });
 
+  test('generate entities from schema with forceUndefined = false [mysql]', async () => {
+    const orm = await initORMMySql('mysql', {}, true);
+    const dump = await orm.entityGenerator.generate({
+      forceUndefined: false,
+    });
+    expect(dump).toMatchSnapshot('mysql-entity-dump');
+    await orm.close(true);
+  });
+
+  test('generate entities from schema with forceUndefined = false and undefinedDefaults = true [mysql]', async () => {
+    const orm = await initORMMySql('mysql', {}, true);
+    const dump = await orm.entityGenerator.generate({
+      forceUndefined: false,
+      undefinedDefaults: true,
+    });
+    expect(dump).toMatchSnapshot('mysql-entity-dump');
+    await orm.close(true);
+  });
+
   test('skipTables [mysql]', async () => {
     const orm = await initORMMySql('mysql', {}, true);
     const dump = await orm.entityGenerator.generate({
