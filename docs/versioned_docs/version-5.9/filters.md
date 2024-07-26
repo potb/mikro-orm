@@ -6,7 +6,7 @@ MikroORM has the ability to pre-define filter criteria and attach those filters 
 
 > Filter can be defined at the entity level, dynamically via EM (global filters) or in the ORM configuration.
 
-Filters are applied to those methods of `EntityManager`: `find()`, `findOne()`, `findAndCount()`, `findOneOrFail()`, `count()`, `nativeUpdate()` and `nativeDelete()`.
+> Filters are applied to those methods of `EntityManager`: `find()`, `findOne()`, `findAndCount()`, `findOneOrFail()`, `count()`, `nativeUpdate()` and `nativeDelete()`.
 
 > The `cond` parameter can be a callback, possibly asynchronous.
 
